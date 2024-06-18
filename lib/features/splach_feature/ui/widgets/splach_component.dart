@@ -13,7 +13,7 @@ class SplachComponent extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.15,
+          height: MediaQuery.of(context).size.height * 0.14,
         ),
         const SplachViewLogo(),
         SizedBox(
@@ -21,11 +21,11 @@ class SplachComponent extends StatelessWidget {
         ),
         const SplachWelcomeMessage(),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.12,
+          height: MediaQuery.of(context).size.height * 0.1,
         ),
         const SplachDescriptionMessage(),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.12,
+          height: MediaQuery.of(context).size.height * 0.1,
         ),
         const SplachFinalComponent(),
         SizedBox(

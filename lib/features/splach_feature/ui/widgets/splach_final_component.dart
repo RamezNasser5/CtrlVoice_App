@@ -7,12 +7,12 @@ class SplachFinalComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: MediaQuery.of(context).size.height * 0.08,
+        horizontal: MediaQuery.of(context).size.height * 0.1,
       ),
       child: Row(
         children: [
           Flexible(
-            flex: 7,
+            flex: 9,
             child: Container(
               height: 15,
               decoration: BoxDecoration(
@@ -25,7 +25,7 @@ class SplachFinalComponent extends StatelessWidget {
             width: MediaQuery.of(context).size.height * 0.01,
           ),
           Flexible(
-            flex: 2,
+            flex: 3,
             child: Container(
               height: 15,
               decoration: BoxDecoration(
@@ -38,7 +38,7 @@ class SplachFinalComponent extends StatelessWidget {
             width: MediaQuery.of(context).size.height * 0.01,
           ),
           Flexible(
-            flex: 1,
+            flex: 2,
             child: Container(
               height: 15,
               decoration: BoxDecoration(
