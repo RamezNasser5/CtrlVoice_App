@@ -1,3 +1,4 @@
+import 'package:ctrlvoice/features/splach_feature/ui/widgets/splach_description_message.dart';
 import 'package:ctrlvoice/features/splach_feature/ui/widgets/splach_view_logo.dart';
 import 'package:ctrlvoice/features/splach_feature/ui/widgets/splach_welcome_message.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,10 @@ class SplachComponent extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.05,
         ),
         const SplachWelcomeMessage(),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.12,
+        ),
+        const SplachDescriptionMessage(),
       ],
     );
   }

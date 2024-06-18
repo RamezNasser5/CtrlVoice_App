@@ -72,9 +72,9 @@ flutter:
         - asset: assets/fonts/Jokerman.otf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
+    - family: AkayaKanadaka-Regular
+      fonts:
+        - asset: assets/fonts/AkayaKanadaka-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
