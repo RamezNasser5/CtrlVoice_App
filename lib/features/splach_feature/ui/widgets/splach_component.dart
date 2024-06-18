@@ -1,7 +1,9 @@
 import 'package:ctrlvoice/features/splach_feature/ui/widgets/splach_description_message.dart';
+import 'package:ctrlvoice/features/splach_feature/ui/widgets/splach_final_component.dart';
 import 'package:ctrlvoice/features/splach_feature/ui/widgets/splach_view_logo.dart';
 import 'package:ctrlvoice/features/splach_feature/ui/widgets/splach_welcome_message.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class SplachComponent extends StatelessWidget {
   const SplachComponent({super.key});
@@ -22,6 +24,13 @@ class SplachComponent extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.12,
         ),
         const SplachDescriptionMessage(),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.12,
+        ),
+        const SplachFinalComponent(),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.01,
+        ),
       ],
     );
   }

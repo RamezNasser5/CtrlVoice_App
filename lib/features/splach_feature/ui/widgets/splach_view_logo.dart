@@ -10,7 +10,7 @@ class SplachViewLogo extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.07,
+          horizontal: MediaQuery.of(context).size.width * 0.1,
         ),
         child: Container(
           decoration: BoxDecoration(
