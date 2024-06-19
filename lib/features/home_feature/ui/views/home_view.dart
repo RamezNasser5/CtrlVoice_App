@@ -1,5 +1,5 @@
 import 'package:ctrlvoice/features/home_feature/logic/bloc/bloc/speech_to_text_bloc.dart';
-import 'package:ctrlvoice/features/home_feature/logic/cubits/cubit/assistant_ai_cubit.dart';
+import 'package:ctrlvoice/features/home_feature/logic/cubits/assistant_ai/assistant_ai_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
