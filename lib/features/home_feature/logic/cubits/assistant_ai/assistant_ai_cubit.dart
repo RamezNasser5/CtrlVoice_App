@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:ctrlvoice/core/utils/consts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -19,7 +20,7 @@ class AssistantAiCubit extends Cubit<AssistantAiState> {
         exit(1);
       }
       final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: apiKey);
-      final content = [Content.text(prompt)];
+      final content = [Content.text(prompt + based)];
       final response = await model.generateContent(content);
       debugPrint(response.text);
       emit(AssistantAiSuccess(message: response.text!));
