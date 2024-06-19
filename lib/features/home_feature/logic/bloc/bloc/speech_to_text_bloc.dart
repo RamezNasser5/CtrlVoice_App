@@ -8,20 +8,26 @@ class SpeechToTextBloc extends Bloc<SpeechToTextEvent, SpeechToTextState> {
   SpeechToText speechToText = SpeechToText();
   String message = '';
 
-  SpeechToTextBloc() : super(SpeechToTextInitial()) {
+  SpeechToTextBloc() : super(SpeechToTextStartInitial()) {
     on<SpeechToTextEvent>((event, emit) async {
-      emit(SpeechToTextLoading());
-      try {
-        if (event is SpeechToTextStartEvent) {
+      if (event is SpeechToTextStartEvent) {
+        emit(SpeechToTextStartLoading());
+        try {
           await speechToText.listen();
           message = speechToText.lastRecognizedWords;
-        } else if (event is SpeechToTextEndEvent) {
+          emit(SpeechToTextStartSuccess(message: message));
+        } catch (e) {
+          emit(SpeechToTextStartFailure(message: e.toString()));
+        }
+      } else if (event is SpeechToTextEndEvent) {
+        emit(SpeechToTextEndLoading());
+        try {
           await speechToText.stop();
           message = speechToText.lastRecognizedWords;
+          emit(SpeechToTextEndSuccess(message: message));
+        } catch (e) {
+          emit(SpeechToTextEndFailure(message: e.toString()));
         }
-        emit(SpeechToTextSuccess(message: message));
-      } catch (e) {
-        emit(SpeechToTextFailure(message: e.toString()));
       }
     });
   }
