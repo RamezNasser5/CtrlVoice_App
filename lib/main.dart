@@ -1,4 +1,4 @@
-import 'package:ctrlvoice/features/splach_feature/ui/views/splach_view.dart';
+import 'package:ctrlvoice/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,9 +10,9 @@ class CtrlVoice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: SplachView(),
+      routerConfig: AppRouter.routers,
     );
   }
 }
