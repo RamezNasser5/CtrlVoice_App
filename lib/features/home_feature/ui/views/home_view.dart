@@ -1,5 +1,6 @@
 import 'package:ctrlvoice/features/home_feature/logic/bloc/bloc/speech_to_text_bloc.dart';
 import 'package:ctrlvoice/features/home_feature/logic/cubits/assistant_ai/assistant_ai_cubit.dart';
+import 'package:ctrlvoice/features/home_feature/logic/cubits/text_to_speech/text_to_speech_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -52,6 +53,8 @@ class HomeView extends StatelessWidget {
                 if (state is AssistantAiLoading) {
                   return const CircularProgressIndicator();
                 } else if (state is AssistantAiSuccess) {
+                  BlocProvider.of<TextToSpeechCubit>(context)
+                      .speakText(state.message);
                   return Text(state.message);
                 } else if (state is AssistantAiFailure) {
                   return Text(state.message);
