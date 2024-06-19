@@ -1,9 +1,13 @@
 part of 'speech_to_text_bloc.dart';
 
-sealed class SpeechToTextEvent {}
+abstract class SpeechToTextEvent {}
 
-final class SpeechToTextInitialEvent extends SpeechToTextEvent {}
+class SpeechToTextStartEvent extends SpeechToTextEvent {}
 
-final class SpeechToTextStartEvent extends SpeechToTextEvent {}
+class SpeechToTextEndEvent extends SpeechToTextEvent {}
 
-final class SpeechToTextEndEvent extends SpeechToTextEvent {}
+class SpeechToTextResultEvent extends SpeechToTextEvent {
+  final String message;
+
+  SpeechToTextResultEvent({required this.message});
+}

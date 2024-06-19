@@ -13,9 +13,16 @@ class SpeechToTextBloc extends Bloc<SpeechToTextEvent, SpeechToTextState> {
       if (event is SpeechToTextStartEvent) {
         emit(SpeechToTextStartLoading());
         try {
-          await speechToText.listen();
-          message = speechToText.lastRecognizedWords;
-          emit(SpeechToTextStartSuccess(message: message));
+          bool available = await speechToText.initialize();
+          if (available) {
+            await speechToText.listen(onResult: (result) {
+              message = result.recognizedWords;
+              add(SpeechToTextResultEvent(message: message));
+            });
+          } else {
+            emit(SpeechToTextStartFailure(
+                message: 'Speech recognition not available'));
+          }
         } catch (e) {
           emit(SpeechToTextStartFailure(message: e.toString()));
         }
@@ -23,11 +30,12 @@ class SpeechToTextBloc extends Bloc<SpeechToTextEvent, SpeechToTextState> {
         emit(SpeechToTextEndLoading());
         try {
           await speechToText.stop();
-          message = speechToText.lastRecognizedWords;
           emit(SpeechToTextEndSuccess(message: message));
         } catch (e) {
           emit(SpeechToTextEndFailure(message: e.toString()));
         }
+      } else if (event is SpeechToTextResultEvent) {
+        emit(SpeechToTextStartSuccess(message: event.message));
       }
     });
   }
