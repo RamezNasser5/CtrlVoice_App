@@ -13,4 +13,11 @@ abstract class Styles {
     fontWeight: FontWeight.w400,
     fontFamily: 'AkayaKanadaka-Regular',
   );
+
+  static const TextStyle voicesStyle = TextStyle(
+    color: Colors.black,
+    fontSize: 24,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'AkayaKanadaka-Regular',
+  );
 }
