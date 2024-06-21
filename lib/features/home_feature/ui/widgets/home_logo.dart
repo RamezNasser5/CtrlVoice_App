@@ -9,11 +9,11 @@ class HomeLogo extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.width * 0.1,
+          height: MediaQuery.of(context).size.width * 0.02,
         ),
         Image.asset('assets/images/ctrlvoice.png'),
         SizedBox(
-          height: MediaQuery.of(context).size.width * 0.1,
+          height: MediaQuery.of(context).size.width * 0.08,
         ),
         Text(
           'CtrlVoice Assistant',

@@ -22,7 +22,11 @@ class MicrophoneButton extends StatelessWidget {
             color: colors,
             borderRadius: BorderRadius.circular(25),
           ),
-          child: FittedBox(child: Icon(icon)),
+          child: FittedBox(
+              child: Padding(
+            padding: const EdgeInsets.all(7.0),
+            child: Icon(icon),
+          )),
         ),
       ),
     );

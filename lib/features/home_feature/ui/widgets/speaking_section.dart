@@ -9,6 +9,7 @@ class SpeakingSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 1,
       child: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.1),
