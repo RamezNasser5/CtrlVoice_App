@@ -6,25 +6,19 @@ class HomeLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.width * 0.02,
-        ),
-        Image.asset('assets/images/ctrlvoice.png'),
-        SizedBox(
-          height: MediaQuery.of(context).size.width * 0.08,
-        ),
-        Text(
-          'CtrlVoice Assistant',
-          style: Styles.descriptionStyle.copyWith(
-            fontSize: MediaQuery.of(context).size.width * 0.09,
+    return Expanded(
+      flex: 2,
+      child: Column(
+        children: [
+          Image.asset('assets/images/ctrlvoice.png'),
+          Text(
+            'CtrlVoice Assistant',
+            style: Styles.descriptionStyle.copyWith(
+              fontSize: MediaQuery.of(context).size.width * 0.09,
+            ),
           ),
-        ),
-        SizedBox(
-          height: MediaQuery.of(context).size.width * 0.1,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

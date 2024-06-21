@@ -1,7 +1,9 @@
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:ctrlvoice/core/utils/styles.dart';
+import 'package:ctrlvoice/features/home_feature/logic/bloc/bloc/speech_to_text_bloc.dart';
 import 'package:ctrlvoice/features/home_feature/ui/widgets/microphone_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SpeakingSection extends StatelessWidget {
   const SpeakingSection({super.key});
@@ -35,7 +37,10 @@ class SpeakingSection extends StatelessWidget {
                   MicrophoneButton(
                     colors: Colors.green,
                     icon: FontAwesomeIcons.microphone,
-                    onTap: () {},
+                    onTap: () {
+                      BlocProvider.of<SpeechToTextBloc>(context)
+                          .add(SpeechToTextStartEvent());
+                    },
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.height * 0.03,
@@ -43,7 +48,10 @@ class SpeakingSection extends StatelessWidget {
                   MicrophoneButton(
                     colors: Colors.red,
                     icon: FontAwesomeIcons.stopCircle,
-                    onTap: () {},
+                    onTap: () {
+                      BlocProvider.of<SpeechToTextBloc>(context)
+                          .add(SpeechToTextEndEvent());
+                    },
                   ),
                 ],
               ),
