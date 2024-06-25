@@ -16,19 +16,27 @@ class HomeComponents extends StatelessWidget {
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.05,
         ),
-        const CustomBackButton(),
-        //const HomeLogo(),
+        const Expanded(
+          flex: 1,
+          child: CustomBackButton(),
+        ),
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
         ),
-        Image.asset('assets/images/ctrlvoice.png'),
+        Expanded(
+          flex: 1,
+          child: Image.asset('assets/images/ctrlvoice.png'),
+        ),
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.03,
         ),
-        Text(
-          'CtrlVoice Assistant',
-          style: Styles.descriptionStyle.copyWith(
-            fontSize: MediaQuery.of(context).size.width * 0.09,
+        Expanded(
+          flex: 2,
+          child: Text(
+            'CtrlVoice Assistant',
+            style: Styles.descriptionStyle.copyWith(
+              fontSize: MediaQuery.of(context).size.width * 0.05,
+            ),
           ),
         ),
         SizedBox(

@@ -16,18 +16,21 @@ class CustomBackButton extends StatelessWidget {
       ),
       child: GestureDetector(
         onTap: () => GoRouter.of(context).go(AppRouter.initialRoute),
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.1,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
-          ),
-          child: const FittedBox(
-            child: Padding(
-              padding: EdgeInsets.all(6.0),
-              child: Icon(
-                FontAwesomeIcons.arrowLeft,
-                color: Color(0xff4093CE),
+        child: AspectRatio(
+          aspectRatio: 1,
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.1,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: const FittedBox(
+              child: Padding(
+                padding: EdgeInsets.all(6.0),
+                child: Icon(
+                  FontAwesomeIcons.arrowLeft,
+                  color: Color(0xff4093CE),
+                ),
               ),
             ),
           ),

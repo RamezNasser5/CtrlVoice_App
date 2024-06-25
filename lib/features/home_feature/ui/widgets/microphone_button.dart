@@ -15,18 +15,25 @@ class MicrophoneButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 1,
       child: GestureDetector(
         onTap: onTap,
-        child: Container(
-          decoration: BoxDecoration(
-            color: colors,
-            borderRadius: BorderRadius.circular(25),
+        child: AspectRatio(
+          aspectRatio: 1 / 1,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: colors,
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: FittedBox(
+                  child: Padding(
+                padding: const EdgeInsets.all(7.0),
+                child: Icon(icon),
+              )),
+            ),
           ),
-          child: FittedBox(
-              child: Padding(
-            padding: const EdgeInsets.all(7.0),
-            child: Icon(icon),
-          )),
         ),
       ),
     );
