@@ -34,7 +34,7 @@ class HomeComponents extends StatelessWidget {
           flex: 2,
           child: Text(
             'CtrlVoice Assistant',
-            style: Styles.descriptionStyle.copyWith(
+            style: Styles.descriptionStyle(context).copyWith(
               fontSize: MediaQuery.of(context).size.width * 0.05,
             ),
           ),

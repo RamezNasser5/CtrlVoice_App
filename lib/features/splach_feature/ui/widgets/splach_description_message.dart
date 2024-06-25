@@ -10,9 +10,9 @@ class SplachDescriptionMessage extends StatelessWidget {
       padding: EdgeInsets.only(
         left: MediaQuery.of(context).size.height * 0.02,
       ),
-      child: const Text(
+      child: Text(
         'Ctrl Voice is a specialized Visual Studio Code extension designed to empower visually impaired individuals in programming through enhanced accessibility features.',
-        style: Styles.descriptionStyle,
+        style: Styles.descriptionStyle(context),
       ),
     );
   }

@@ -10,9 +10,9 @@ class SplachWelcomeMessage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Text(
+        Text(
           'Welcome To',
-          style: Styles.welcomeStyle,
+          style: Styles.welcomeStyle(context),
         ),
         Padding(
           padding: EdgeInsets.only(
@@ -20,9 +20,9 @@ class SplachWelcomeMessage extends StatelessWidget {
           ),
           child: Row(
             children: [
-              const Text(
+              Text(
                 'CtrlVoice',
-                style: Styles.welcomeStyle,
+                style: Styles.welcomeStyle(context),
               ),
               const SizedBox(
                 width: 15,

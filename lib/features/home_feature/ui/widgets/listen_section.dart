@@ -26,9 +26,9 @@ class ListenSection extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Listening...',
-                  style: Styles.voicesStyle,
+                  style: Styles.voicesStyle(context),
                 ),
                 BlocBuilder<SpeechToTextBloc, SpeechToTextState>(
                   builder: (context, state) {

@@ -27,9 +27,9 @@ class SpeakingSection extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  const Text(
+                  Text(
                     'Speaking...',
-                    style: Styles.voicesStyle,
+                    style: Styles.voicesStyle(context),
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.height * 0.03,
