@@ -1,6 +1,8 @@
 const String based = '''
-    and description of the command based on this features
-    1. Navigation Shortcuts
+
+  am create new extension and my new extension have the follwing feature
+  "
+  1. Navigation Shortcuts
       Move to the next line and read it
       Command: Press Ctrl + Alt + N
       Description: This command moves the cursor to the next line in the code editor and reads the content of the line aloud.
@@ -85,4 +87,8 @@ const String based = '''
       Insert code snippet
       Command: Press Ctrl + Alt + I
       Description: This command inserts a predefined code snippet at the cursor location in the code editor.
+  "    
+  now can you help me to anser the blind user question based on this features
+  blind user question:
+  
     ''';

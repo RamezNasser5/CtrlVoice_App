@@ -15,7 +15,8 @@ class HomeRepoImpl implements HomeRepo {
       exit(1);
     }
     final model = GenerativeModel(model: 'gemini-1.5-flash', apiKey: apiKey);
-    final content = [Content.text(prompt + based)];
+    final content = [Content.text(based + prompt)];
+    debugPrint(content.toString());
     final response = await model.generateContent(content);
     debugPrint(response.text);
     return response.text!;
