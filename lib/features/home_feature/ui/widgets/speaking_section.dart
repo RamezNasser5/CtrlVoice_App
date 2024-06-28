@@ -38,8 +38,8 @@ class SpeakingSection extends StatelessWidget {
                     colors: Colors.green,
                     icon: FontAwesomeIcons.microphone,
                     onTap: () {
-                      BlocProvider.of<SpeechToTextBloc>(context)
-                          .add(SpeechToTextStartEvent());
+                      // BlocProvider.of<SpeechToTextBloc>(context)
+                      //     .add(SpeechToTextStartEvent());
                     },
                   ),
                   SizedBox(

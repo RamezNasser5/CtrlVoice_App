@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
@@ -14,17 +15,20 @@ class SpeechToTextBloc extends Bloc<SpeechToTextEvent, SpeechToTextState> {
         emit(SpeechToTextStartLoading());
         try {
           bool available = await speechToText.initialize();
+          debugPrint('initialize done...................');
           if (available) {
+            debugPrint('wait for listening...................');
             await speechToText.listen(onResult: (result) {
               message = result.recognizedWords;
               add(SpeechToTextResultEvent(message: message));
             });
+            debugPrint('listening done...................');
           } else {
             emit(SpeechToTextStartFailure(
                 message: 'Speech recognition not available'));
           }
         } catch (e) {
-          emit(SpeechToTextStartFailure(message: e.toString()));
+          emit(SpeechToTextStartFailure(message: 'Error: ${e.toString()}'));
         }
       } else if (event is SpeechToTextEndEvent) {
         emit(SpeechToTextEndLoading());

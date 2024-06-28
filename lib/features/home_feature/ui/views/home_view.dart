@@ -1,25 +1,57 @@
+import 'package:ctrlvoice/features/home_feature/logic/bloc/bloc/speech_to_text_bloc.dart';
 import 'package:ctrlvoice/features/home_feature/ui/widgets/home_components.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  int _activePointers = 0;
+  bool isListening = true;
+
+  void _handlePointerDown(PointerDownEvent event) {
+    setState(() {
+      _activePointers++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      width: MediaQuery.of(context).size.width,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-          colors: [
-            Color(0xff4093CE),
-            Color(0xff9BCEF3),
-          ],
+        body: Listener(
+      onPointerDown: _handlePointerDown,
+      child: GestureDetector(
+        onPanUpdate: (_) {
+          debugPrint(_activePointers.toString());
+          if (_activePointers == 3) {
+            if (isListening) {
+              isListening = false;
+              debugPrint('only one..........');
+              BlocProvider.of<SpeechToTextBloc>(context)
+                  .add(SpeechToTextStartEvent());
+            }
+          }
+        },
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color(0xff4093CE),
+                Color(0xff9BCEF3),
+              ],
+            ),
+          ),
+          child: const HomeComponents(),
         ),
       ),
-      child: const HomeComponents(),
     ));
   }
 }
