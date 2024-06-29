@@ -1,40 +1,22 @@
-import 'package:ctrlvoice/features/home_feature/logic/bloc/bloc/speech_to_text_bloc.dart';
-import 'package:ctrlvoice/features/home_feature/logic/cubits/text_to_speech/text_to_speech_cubit.dart';
+import 'package:ctrlvoice/features/home_feature/data/models/voice_interaction_model.dart';
 import 'package:ctrlvoice/features/home_feature/ui/widgets/home_components.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  bool onlyOne = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
-        onPanUpdate: (details) {
-          debugPrint('Swiping down');
-          if (onlyOne) {
-            BlocProvider.of<SpeechToTextBloc>(context)
-                .add(SpeechToTextStartEvent());
-            onlyOne = false;
-          }
+        onPanUpdate: (_) {
+          VoiceInteractionModel.startSpeacking(context);
         },
-        onPanEnd: (details) {
-          debugPrint('Pointer up');
-          BlocProvider.of<SpeechToTextBloc>(context)
-              .add(SpeechToTextEndEvent());
-          onlyOne = true;
+        onPanEnd: (_) {
+          VoiceInteractionModel.startAIProcessing(context);
         },
         onDoubleTap: () {
-          debugPrint('Double tap');
-          BlocProvider.of<TextToSpeechCubit>(context).stopSpeakText();
+          VoiceInteractionModel.stopTextToSpeech(context);
         },
         child: Container(
           width: MediaQuery.of(context).size.width,
