@@ -31,3 +31,13 @@ class SpeechToTextEndFailure extends SpeechToTextState {
 
   SpeechToTextEndFailure({required this.message});
 }
+
+class SpeechToTextStopLoading extends SpeechToTextState {}
+
+class SpeechToTextStopSuccess extends SpeechToTextState {}
+
+class SpeechToTextStopFailure extends SpeechToTextState {
+  final String message;
+
+  SpeechToTextStopFailure({required this.message});
+}

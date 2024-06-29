@@ -12,10 +12,21 @@ class TextToSpeechCubit extends Cubit<TextToSpeechState> {
   speakText(String prompt) async {
     emit(TextToSpeechLoading());
     try {
-      await flutterTts.speak(prompt);
+      String newPrompt = prompt.replaceAll('*', '');
+      await flutterTts.speak(newPrompt);
       emit(TextToSpeechSuccess());
     } catch (e) {
       emit(TextToSpeechFailure(message: e.toString()));
+    }
+  }
+
+  stopSpeakText() async {
+    emit(TextToStopSpeechLoading());
+    try {
+      await flutterTts.stop();
+      emit(TextToStopSpeechSuccess());
+    } catch (e) {
+      emit(TextToStopSpeechFailure(message: e.toString()));
     }
   }
 }

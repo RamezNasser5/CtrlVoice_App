@@ -14,3 +14,15 @@ final class TextToSpeechFailure extends TextToSpeechState {
 
   TextToSpeechFailure({required this.message});
 }
+
+final class TextToStopSpeechInitial extends TextToSpeechState {}
+
+final class TextToStopSpeechLoading extends TextToSpeechState {}
+
+final class TextToStopSpeechSuccess extends TextToSpeechState {}
+
+final class TextToStopSpeechFailure extends TextToSpeechState {
+  final String message;
+
+  TextToStopSpeechFailure({required this.message});
+}
